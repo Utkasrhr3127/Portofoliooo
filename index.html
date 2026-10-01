@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Utkarsh Shrivastava // Software Developer</title>
+  <meta name="theme-color" content="#04050a" />
+  <meta name="description" content="Portfolio of Utkarsh Shrivastava — CSE student, builder, and problem solver." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+</head>
+<body>
+
+  <canvas id="particle-canvas"></canvas>
+  <canvas id="three-canvas"></canvas>
+
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <div id="loader">
+    <div class="loader-terminal">
+      <span class="loader-prompt">$</span>
+      <span class="loader-text">initializing portfolio</span>
+      <span class="loader-cursor">_</span>
+    </div>
+  </div>
+
+  <nav id="navbar">
+    <div class="nav-brand">
+      <span class="nav-bracket">&lt;</span>US<span class="nav-bracket">/&gt;</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero" class="nav-link active" data-section="hero">home</a></li>
+      <li><a href="#about" class="nav-link" data-section="about">about</a></li>
+      <li><a href="#focus" class="nav-link" data-section="focus">focus</a></li>
+      <li><a href="#skills" class="nav-link" data-section="skills">skills</a></li>
+      <li><a href="#projects" class="nav-link" data-section="projects">projects</a></li>
+      <li><a href="#experience" class="nav-link" data-section="experience">experience</a></li>
+      <li><a href="#contact" class="nav-link" data-section="contact">contact</a></li>
+    </ul>
+    <div class="nav-toggle" id="navToggle">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <section id="hero" class="section hero">
+    <div class="hero-grid-overlay"></div>
+
+    <div class="hud-layer" aria-hidden="true">
+      <div class="hud-corner tl"><span class="hud-label">SYS.ONLINE</span></div>
+      <div class="hud-corner tr"><span class="hud-label">PING: 12ms</span></div>
+      <div class="hud-corner bl"><span class="hud-label">v3.0.26</span></div>
+      <div class="hud-corner br"><span class="hud-label">JPR / IN</span></div>
+
+      <div class="hud-scanline"></div>
+
+      <div class="hud-orbit">
+        <div class="orbit-dot d1"></div>
+        <div class="orbit-dot d2"></div>
+        <div class="orbit-dot d3"></div>
+      </div>
+    </div>
+
+    <div class="code-rain" aria-hidden="true">
+      <span class="frag f1">0x1F4A</span>
+      <span class="frag f2">const x = 42;</span>
+      <span class="frag f3">while(true)</span>
+      <span class="frag f4">01001010</span>
+      <span class="frag f5">return 0;</span>
+      <span class="frag f6">nullptr</span>
+      <span class="frag f7">import sys</span>
+      <span class="frag f8">fn main()</span>
+      <span class="frag f9">&lt;/&gt;</span>
+      <span class="frag f10">O(log n)</span>
+      <span class="frag f11">async await</span>
+      <span class="frag f12">0xDEADBEEF</span>
+    </div>
+
+    <div class="hero-content">
+
+      <h1 class="mega-name" id="megaName" data-text="Utkarsh Shrivastava" aria-label="Utkarsh Shrivastava"></h1>
+
+      <div class="hero-terminal-wrap">
+        <div class="hero-terminal-window">
+          <div class="terminal-header">
+            <span class="terminal-dot red"></span>
+            <span class="terminal-dot yellow"></span>
+            <span class="terminal-dot green"></span>
+            <span class="terminal-title">utkarsh@portfolio:~</span>
+          </div>
+          <div class="terminal-body">
+            <p class="terminal-line"><span class="prompt">$</span> whoami</p>
+            <p class="terminal-output">Utkarsh Shrivastava</p>
+            <p class="terminal-line"><span class="prompt">$</span> cat role.txt</p>
+            <p class="terminal-output" id="typewriter"></p>
+            <p class="terminal-line"><span class="prompt">$</span> location</p>
+            <p class="terminal-output">Jaipur, Rajasthan, India</p>
+            <p class="terminal-line blink-line"><span class="prompt">$</span> <span class="terminal-cursor">█</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">view projects</a>
+        <a href="#contact" class="btn btn-outline">get in touch</a>
+      </div>
+
+      <div class="hero-status">
+        <span class="status-dot"></span>
+        <span class="status-label">utkarsh@portfolio</span>
+        <span class="status-sep">·</span>
+        <span class="status-value">Jaipur, IN</span>
+        <span class="status-sep">·</span>
+        <span class="status-value">open to internships</span>
+      </div>
+
+      <div class="hero-scroll-indicator">
+        <span>scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="about" class="section">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">about_me</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-terminal-card reveal">
+        <div class="card-corner top-left"></div>
+        <div class="card-corner bottom-right"></div>
+        <p class="about-text">
+          I'm a final-year <span class="highlight">Computer Science</span> student at
+          JECRC University who genuinely enjoys turning messy ideas into clean,
+          working software. I care about writing code that real people can use —
+          not just code that compiles.
+        </p>
+        <p class="about-text">
+          My foundation is in <span class="highlight">Data Structures &amp; Algorithms</span>,
+          <span class="highlight">Object-Oriented Programming</span>, and web development.
+          I've built projects across AI, real-time systems, and full-stack web —
+          each one teaching me something new about building things that actually work.
+        </p>
+        <p class="about-text">
+          Right now I'm looking for a software development internship where I can
+          learn from experienced engineers, contribute to meaningful products, and
+          grow into a dependable developer.
+        </p>
+        <div class="about-stats">
+          <div class="stat">
+            <span class="stat-number" data-target="2027">0</span>
+            <span class="stat-label">graduating</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-target="2">0</span>
+            <span class="stat-label">projects</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number" data-target="6">0</span>
+            <span class="stat-label">languages</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual reveal">
+        <div class="code-block">
+          <pre><code><span class="code-keyword">const</span> <span class="code-var">utkarsh</span> = {
+  <span class="code-prop">role</span>: <span class="code-string">"CSE Student"</span>,
+  <span class="code-prop">focus</span>: [<span class="code-string">"DSA"</span>, <span class="code-string">"Web"</span>, <span class="code-string">"AI"</span>],
+  <span class="code-prop">stack</span>: <span class="code-string">"Node + Python"</span>,
+  <span class="code-prop">currentGoal</span>: <span class="code-string">"SDE Internship"</span>,
+  <span class="code-prop">coffee</span>: <span class="code-keyword">true</span>
+};</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="focus" class="section">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">focus_areas</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="focus-grid">
+      <div class="focus-card focus-large reveal">
+        <div class="focus-icon">⌬</div>
+        <h3>Full-Stack Development</h3>
+        <p>Building end-to-end web applications with clean architecture — from REST APIs and auth flows to responsive, production-deployed UIs.</p>
+        <div class="focus-tags">
+          <span>Node.js</span><span>Express</span><span>MongoDB</span><span>REST</span>
+        </div>
+      </div>
+      <div class="focus-card reveal">
+        <div class="focus-icon">◈</div>
+        <h3>AI &amp; NLP</h3>
+        <p>Using Python and NLP to turn unstructured text into clear, actionable insight.</p>
+        <div class="focus-tags">
+          <span>Python</span><span>NLP</span><span>Streamlit</span>
+        </div>
+      </div>
+      <div class="focus-card reveal">
+        <div class="focus-icon">◇</div>
+        <h3>Real-Time Systems</h3>
+        <p>Designing low-latency, multi-user experiences with WebSockets and Socket.IO.</p>
+        <div class="focus-tags">
+          <span>Socket.IO</span><span>WebSockets</span>
+        </div>
+      </div>
+      <div class="focus-card focus-wide reveal">
+        <div class="focus-icon">◆</div>
+        <h3>Problem Solving</h3>
+        <p>Strong foundation in DSA, OOP, OS, and DBMS — the base everything else is built on.</p>
+        <div class="focus-tags">
+          <span>DSA</span><span>OOP</span><span>OS</span><span>DBMS</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">tech_stack</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-category reveal">
+        <h3 class="skill-category-title"><span class="skill-icon">{" "}</span> languages</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">C</span>
+          <span class="skill-tag">C++</span>
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">SQL</span>
+        </div>
+      </div>
+      <div class="skill-category reveal">
+        <h3 class="skill-category-title"><span class="skill-icon">{" "}</span> cs_fundamentals</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Data Structures</span>
+          <span class="skill-tag">Algorithms</span>
+          <span class="skill-tag">OOP</span>
+          <span class="skill-tag">Operating Systems</span>
+          <span class="skill-tag">DBMS</span>
+          <span class="skill-tag">REST APIs</span>
+        </div>
+      </div>
+      <div class="skill-category reveal">
+        <h3 class="skill-category-title"><span class="skill-icon">{" "}</span> web_and_db</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Express.js</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Socket.IO</span>
+        </div>
+      </div>
+      <div class="skill-category reveal">
+        <h3 class="skill-category-title"><span class="skill-icon">{" "}</span> tools</h3>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">Vercel</span>
+          <span class="skill-tag">Streamlit</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="section">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2 class="section-title">projects</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="projects-grid">
+
+      <article class="project-card reveal tilt-card">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <span class="project-index">01</span>
+          <span class="project-year">2025</span>
+        </div>
+        <h3 class="project-title">Rankraft</h3>
+        <p class="project-subtitle">AI Resume Analyser — College Minor Project</p>
+
+        <div class="project-case">
+          <div class="case-row">
+            <span class="case-label">problem</span>
+            <p class="case-text">Job seekers can't tell if their resume actually matches a role.</p>
+          </div>
+          <div class="case-row">
+            <span class="case-label">solution</span>
+            <p class="case-text">An NLP analyser that scores resumes against a job description and highlights missing keywords.</p>
+          </div>
+          <div class="case-row">
+            <span class="case-label">result</span>
+            <p class="case-text">Clear, actionable feedback for individuals through a simple guided flow.</p>
+          </div>
+        </div>
+
+        <div class="project-tech">
+          <span>Python</span><span>NLP</span><span>Streamlit</span><span>Flask</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Utkasrhr3127/Rankraft" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source">
+            <span class="link-icon">[ ]</span> source
+          </a>
+          <a href="https://github.com/Utkasrhr3127/Rankraft" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Live demo">
+            <span class="link-icon">▸</span> demo
+          </a>
+        </div>
+      </article>
+
+      <article class="project-card reveal tilt-card">
+        <div class="project-glow"></div>
+        <div class="project-header">
+          <span class="project-index">02</span>
+          <span class="project-year">2025</span>
+        </div>
+        <h3 class="project-title">SameWave</h3>
+        <p class="project-subtitle">Synced Listening Room</p>
+
+        <div class="project-case">
+          <div class="case-row">
+            <span class="case-label">problem</span>
+            <p class="case-text">Long-distance friends can't listen to music together in real time.</p>
+          </div>
+          <div class="case-row">
+            <span class="case-label">solution</span>
+            <p class="case-text">A private-room web app with real-time playback sync using Socket.IO.</p>
+          </div>
+          <div class="case-row">
+            <span class="case-label">result</span>
+            <p class="case-text">Low-latency, shared listening experience wrapped in a warm, minimal UI.</p>
+          </div>
+        </div>
+
+        <div class="project-tech">
+          <span>Node.js</span><span>Express.js</span><span>Socket.IO</span><span>HTML/CSS/JS</span>
+        </div>
+        <div class="project-links">
+          <a href="https://github.com/Utkasrhr3127" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source">
+            <span class="link-icon">[ ]</span> source
+          </a>
+          <a href="https://dainty-frangipane-302644.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Live demo">
+            <span class="link-icon">▸</span> demo
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <div class="section-header">
+      <span class="section-number">05</span>
+      <h2 class="section-title">experience</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <h3>GDSC Member</h3>
+            <span class="timeline-date">2023 — 2024</span>
+          </div>
+          <p class="timeline-org">Google Developer Student Clubs, JECRC University</p>
+          <ul class="timeline-bullets">
+            <li>Helped plan and promote developer workshops, coding sessions, and peer-learning activities.</li>
+            <li>Coordinated event logistics, outreach, and participant support with cross-branch student teams.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="achievements" class="section">
+    <div class="section-header">
+      <span class="section-number">06</span>
+      <h2 class="section-title">achievements_&amp;_interests</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="achievements-grid">
+      <div class="achievement-card reveal">
+        <span class="achievement-icon">◆</span>
+        <h4>GDSC Member (2023–2024)</h4>
+        <p>Supported tech community events and beginner-friendly coding activities.</p>
+      </div>
+      <div class="achievement-card reveal">
+        <span class="achievement-icon">◆</span>
+        <h4>Coding Practice</h4>
+        <p>Regularly solve DSA problems on LeetCode and CodeChef.</p>
+      </div>
+      <div class="achievement-card reveal">
+        <span class="achievement-icon">◆</span>
+        <h4>E-Sports</h4>
+        <p>Valorant, competitive FPS, and team-based strategy games.</p>
+      </div>
+      <div class="achievement-card reveal">
+        <span class="achievement-icon">◆</span>
+        <h4>Music &amp; Community</h4>
+        <p>Enjoy building playlists, helping friends with coding, and exploring scalable app ideas.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="section-header">
+      <span class="section-number">07</span>
+      <h2 class="section-title">contact</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-terminal reveal">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+          <span class="terminal-title">contact.sh</span>
+        </div>
+        <div class="terminal-body">
+          <p class="terminal-line"><span class="prompt">$</span> cat contact.json</p>
+          <div class="contact-json">
+            <p>{</p>
+            <p>&nbsp;&nbsp;<span class="json-key">"email"</span>: <a href="mailto:sanjayutk1972@gmail.com" class="json-value">"sanjayutk1972@gmail.com"</a>,</p>
+            <p>&nbsp;&nbsp;<span class="json-key">"phone"</span>: <a href="tel:+917007640499" class="json-value">"+91 7007640499"</a>,</p>
+            <p>&nbsp;&nbsp;<span class="json-key">"linkedin"</span>: <a href="https://www.linkedin.com/in/utkarshshrivastava01/" target="_blank" rel="noopener noreferrer" class="json-value">"linkedin.com/in/utkarshshrivastava01"</a>,</p>
+            <p>&nbsp;&nbsp;<span class="json-key">"location"</span>: <span class="json-value">"Jaipur, Rajasthan"</span></p>
+            <p>}</p>
+          </div>
+          <p class="terminal-line blink-line"><span class="prompt">$</span> <span class="terminal-cursor">█</span></p>
+        </div>
+      </div>
+      <div class="contact-cta reveal">
+        <h3>Let's build something.</h3>
+        <p>
+          I'm open to internship opportunities, freelance projects, and
+          conversations about code, design, or whatever you're building.
+        </p>
+        <a href="mailto:sanjayutk1972@gmail.com" class="btn btn-primary btn-large">
+          send an email
+        </a>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/utkarshshrivastava01/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          <span class="social-sep">/</span>
+          <a href="https://github.com/Utkasrhr3127" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <span class="social-sep">/</span>
+          <a href="https://leetcode.com/" target="_blank" rel="noopener noreferrer">LeetCode</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <p class="footer-text">
+        <span class="footer-bracket">&lt;/&gt;</span>
+        built with vanilla HTML, CSS, JS &amp; Three.js
+      </p>
+      <p class="footer-copy">
+        © <span id="year"></span> Utkarsh Shrivastava. All rights reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
