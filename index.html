@@ -1,479 +1,752 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Utkarsh Shrivastava // Software Developer</title>
-  <meta name="theme-color" content="#04050a" />
-  <meta name="description" content="Portfolio of Utkarsh Shrivastava — CSE student, builder, and problem solver." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Utkarsh Shrivastava — Computer Science Engineer</title>
+
+<meta name="theme-color" content="#f4f2ed">
+<meta name="description" content="Utkarsh Shrivastava — final-year Computer Science student at JECRC University. Projects in AI, real-time systems and full-stack web.">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Utkarsh Shrivastava — Computer Science Engineer">
+<meta property="og:description" content="Final-year Computer Science student at JECRC University. Projects in AI, real-time systems and full-stack web.">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23f4f2ed'/%3E%3Crect x='38' y='38' width='24' height='24' fill='%23E10600'/%3E%3C/svg%3E">
+
+<link rel="preload" href="fonts/Handodle-rg38A.ttf" as="font" type="font/ttf" crossorigin>
+
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Architects+Daughter&family=Reenie+Beanie&display=swap">
+
+<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <canvas id="particle-canvas"></canvas>
-  <canvas id="three-canvas"></canvas>
+<a class="skip-link" href="#main">Skip to content</a>
 
-  <div class="cursor-dot"></div>
-  <div class="cursor-ring"></div>
+<div class="cursor" id="cursor" aria-hidden="true">
+  <span class="cursor-dot"></span>
+  <span class="cursor-label" id="cursorLabel"></span>
+</div>
 
-  <div id="loader">
-    <div class="loader-terminal">
-      <span class="loader-prompt">$</span>
-      <span class="loader-text">initializing portfolio</span>
-      <span class="loader-cursor">_</span>
+<div id="scene" aria-hidden="true">
+  <canvas id="scene-canvas"></canvas>
+</div>
+
+<div id="loader" aria-hidden="true">
+  <div class="loader-inner">
+    <div class="loader-head">
+      <span class="loader-name">Utkarsh Shrivastava</span>
+      <span class="loader-count" id="loaderCount">0</span>
+    </div>
+
+    <ol class="loader-stages" id="loaderStages">
+      <li data-stage="type">01 <span>Type</span></li>
+      <li data-stage="image">02 <span>Image</span></li>
+      <li data-stage="world">03 <span>World</span></li>
+      <li data-stage="ready">04 <span>Ready</span></li>
+    </ol>
+
+    <span class="loader-track"><i id="loaderBar"></i></span>
+  </div>
+</div>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+
+    <a class="nav-brand" href="#top" id="navBrand" aria-label="Utkarsh Shrivastava — back to top">
+      <span class="nav-mark" aria-hidden="true"></span>
+      <span class="nav-name">Utkarsh&nbsp;Shrivastava</span>
+    </a>
+
+    <nav class="nav-links" id="navLinks" aria-label="Primary">
+      <a href="#work" data-magnetic>Work</a>
+      <a href="#about" data-magnetic>About</a>
+      <a href="#skills" data-magnetic>Skills</a>
+      <a href="#experience" data-magnetic>Experience</a>
+      <a href="#experiments" data-magnetic>Experiments</a>
+      <a href="#contact" data-magnetic>Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <a class="nav-resume" href="resume.pdf" download data-magnetic data-cursor="↗" aria-label="Download résumé">
+        <span class="nav-resume-label">CV</span>
+        <span class="nav-resume-arrow" aria-hidden="true">↗</span>
+      </a>
+
+      <button class="nav-kbd" id="paletteTrigger" type="button" aria-label="Open navigation menu" data-magnetic>
+        <span class="nav-kbd-key" aria-hidden="true">/</span>
+        <span class="nav-kbd-label">Menu</span>
+      </button>
+
+      <button class="nav-toggle" id="navToggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="navLinks">
+        <span aria-hidden="true"></span><span aria-hidden="true"></span>
+      </button>
+    </div>
+
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- 01 · HERO -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+
+      <div class="hero-copy">
+        <p class="hero-eyebrow" data-reveal>
+          <span class="idx">01</span>
+          <span class="hero-eyebrow-sep" aria-hidden="true">—</span>
+          <span>Index</span>
+          <span class="hero-eyebrow-sep" aria-hidden="true">·</span>
+          <span id="yearTop">2026</span>
+        </p>
+
+        <h1 class="hero-name">
+          <span class="line"><span class="line-inner" data-reveal="line">Utkarsh</span></span>
+          <span class="line"><span class="line-inner" data-reveal="line">Shrivastava</span></span>
+        </h1>
+
+        <p class="hero-role" data-reveal>
+          Computer Science Engineering<br>
+          JECRC University&nbsp;·&nbsp;Jaipur&nbsp;·&nbsp;2027
+        </p>
+
+        <p class="hero-statement" data-reveal>
+          Rooms that stay in sync.<br>Resumes that explain themselves.
+        </p>
+
+        <span class="scribble scribble-hero" aria-hidden="true">drawn from life, 2025 →</span>
+
+        <div class="hero-status" data-reveal>
+          <span class="hero-status-dot" aria-hidden="true"></span>
+          <span class="hero-status-label">Open to internships</span>
+          <span class="hero-status-sep" aria-hidden="true">·</span>
+          <span class="hero-status-loc">Jaipur, IN</span>
+        </div>
+
+        <div class="hero-actions" data-reveal>
+          <a class="arrow-link" href="#work" data-magnetic data-cursor="VIEW">
+            <span>Work</span><span class="arw" aria-hidden="true">↗</span>
+          </a>
+          <a class="arrow-link" href="#contact" data-magnetic data-cursor="WRITE">
+            <span>Contact</span><span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+
+      <figure class="hero-portrait" id="portrait" data-cursor="INSPECT" data-cursor-label="Inspect">
+        <div class="portrait-stage" id="portraitStage">
+
+          <span class="portrait-scan" aria-hidden="true"></span>
+          <div class="portrait-plate" data-depth="0.12" aria-hidden="true"></div>
+
+          <div class="portrait-media" data-depth="0.34">
+            <img id="portraitImg" class="portrait-img" src="utkarsh_x.webp" fetchpriority="high"
+                 alt="Portrait of Utkarsh Shrivastava"
+                 width="1600" height="1583" decoding="async" loading="eager">
+            <span class="portrait-fallback" id="portraitFallback" aria-hidden="true">US</span>
+
+            <span class="portrait-crosshair" aria-hidden="true">
+              <i></i><i></i><i></i><i></i>
+            </span>
+          </div>
+
+          <span class="portrait-accent" data-depth="0.72" aria-hidden="true"></span>
+          <span class="portrait-tick" data-depth="1" aria-hidden="true"></span>
+
+          <span class="portrait-annot portrait-annot-tl" data-depth="1.15" aria-hidden="true">
+            <b>Fig.&nbsp;01</b>
+            <i>Portrait / Study</i>
+          </span>
+          <span class="portrait-annot portrait-annot-br" data-depth="1.15" aria-hidden="true">
+            <b>26.9124° N</b>
+            <i>75.7873° E</i>
+          </span>
+        </div>
+
+        <figcaption class="portrait-cap">
+          <span>Fig.&nbsp;01</span>
+          <span id="portraitState">Portrait</span>
+          <span>Jaipur,&nbsp;IN</span>
+        </figcaption>
+
+        <div class="portrait-meta" aria-hidden="true">
+          <span>26.9124°&nbsp;N</span>
+          <span>75.7873°&nbsp;E</span>
+          <span id="portraitClock">—:—</span>
+        </div>
+      </figure>
+
+    </div>
+
+    <div class="hero-foot">
+      <span class="scroll-cue">
+        <i aria-hidden="true"></i>
+        <span>Scroll</span>
+      </span>
+      <span class="hero-coord" aria-hidden="true">26.9124°&nbsp;N&nbsp;/&nbsp;75.7873°&nbsp;E</span>
+    </div>
+  </section>
+
+
+  <!-- 02 · WORK -->
+  <section class="sec" id="work">
+    <div class="sec-inner">
+
+      <header class="sec-head" data-reveal>
+        <span class="sec-idx">02</span>
+        <div class="sec-title-wrap">
+          <h2 class="sec-title" data-draw>Work</h2>
+          <span class="sec-note" aria-hidden="true">Two projects, 2025</span>
+        </div>
+        <span class="sec-line" data-rule aria-hidden="true"></span>
+      </header>
+
+      <article class="project" data-reveal data-project="rankraft">
+
+        <div class="project-preview" aria-hidden="true">
+          <div class="project-preview-frame">
+            <img class="project-preview-img" src="assets/rankraft-preview.png" alt="" loading="lazy" decoding="async" width="800" height="1000">
+            <div class="project-preview-fallback">
+              <div class="viz viz-rankraft">
+                <span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <span class="project-preview-grid"></span>
+          </div>
+        </div>
+
+        <header class="project-head">
+          <span class="project-num">01</span>
+          <h3 class="project-name">Rankraft</h3>
+          <span class="project-year">2025</span>
+        </header>
+
+        <p class="project-sub">AI Resume Analyser&nbsp;— College Minor Project</p>
+
+        <div class="project-grid">
+
+          <div class="project-case">
+            <div class="case">
+              <span class="case-label">Problem</span>
+              <p>Job seekers can't tell whether their resume actually matches the role they're applying for.</p>
+            </div>
+            <div class="case">
+              <span class="case-label">Approach</span>
+              <p>An NLP analyser that scores a resume against a job description and surfaces missing keywords and skill gaps.</p>
+            </div>
+            <div class="case">
+              <span class="case-label">Result</span>
+              <p>TF-IDF keyword matching across a skill dictionary, wrapped in a simple guided flow with visual insight.</p>
+            </div>
+          </div>
+
+          <aside class="project-side">
+            <p class="project-stack">Python&nbsp;·&nbsp;NLP&nbsp;·&nbsp;Streamlit&nbsp;·&nbsp;Flask</p>
+
+            <span class="scribble scribble-project" aria-hidden="true">this one took longer than expected</span>
+
+            <div class="project-actions">
+              <button type="button" class="project-open" data-inspect-target="rankraft" data-magnetic>
+                <span>Case study</span>
+                <span class="arw" aria-hidden="true">→</span>
+              </button>
+
+              <a class="arrow-link" href="https://github.com/Utkasrhr3127/Rankraft" target="_blank" rel="noopener noreferrer" data-magnetic data-cursor="↗">
+                <span>Source</span><span class="arw" aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </aside>
+
+        </div>
+      </article>
+
+
+      <article class="project" data-reveal data-project="samewave">
+
+        <div class="project-preview" aria-hidden="true">
+          <div class="project-preview-frame">
+            <img class="project-preview-img" src="assets/samewave-preview.png" alt="" loading="lazy" decoding="async" width="800" height="1000">
+            <div class="project-preview-fallback">
+              <div class="viz viz-samewave">
+                <svg viewBox="0 0 220 60" preserveAspectRatio="none" focusable="false" aria-hidden="true">
+                  <path class="wave wave-a" d="M0,30 C28,4 44,4 72,30 S116,56 144,30 S188,4 220,30"/>
+                  <path class="wave wave-b" d="M0,30 C28,56 44,56 72,30 S116,4 144,30 S188,56 220,30"/>
+                </svg>
+              </div>
+            </div>
+            <span class="project-preview-grid"></span>
+          </div>
+        </div>
+
+        <header class="project-head">
+          <span class="project-num">02</span>
+          <h3 class="project-name">SameWave</h3>
+          <span class="project-year">2025</span>
+        </header>
+
+        <p class="project-sub">Synced Listening Room</p>
+
+        <div class="project-grid">
+
+          <div class="project-case">
+            <div class="case">
+              <span class="case-label">Problem</span>
+              <p>Long-distance friends can't listen to music together in real time.</p>
+            </div>
+            <div class="case">
+              <span class="case-label">Approach</span>
+              <p>A private-room web app with real-time playback sync built on Socket.IO, plus shared playback controls.</p>
+            </div>
+            <div class="case">
+              <span class="case-label">Result</span>
+              <p>Sub-second playback sync across rooms, in a minimal, warm interface — with reliable room management.</p>
+            </div>
+          </div>
+
+          <aside class="project-side">
+            <p class="project-stack">Node.js&nbsp;·&nbsp;Express&nbsp;·&nbsp;Socket.IO&nbsp;·&nbsp;HTML&nbsp;/&nbsp;CSS&nbsp;/&nbsp;JS</p>
+
+            <span class="scribble scribble-project" aria-hidden="true">sub-second was the goal</span>
+
+            <div class="project-actions">
+              <button type="button" class="project-open" data-inspect-target="samewave" data-magnetic>
+                <span>Case study</span>
+                <span class="arw" aria-hidden="true">→</span>
+              </button>
+
+              <a class="arrow-link" href="https://github.com/Utkasrhr3127" target="_blank" rel="noopener noreferrer" data-magnetic data-cursor="↗">
+                <span>Source</span><span class="arw" aria-hidden="true">↗</span>
+              </a>
+
+              <a class="arrow-link" href="https://dainty-frangipane-302644.netlify.app/" target="_blank" rel="noopener noreferrer" data-magnetic data-cursor="↗">
+                <span>Live</span><span class="arw" aria-hidden="true">↗</span>
+              </a>
+            </div>
+          </aside>
+
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+
+  <!-- 03 · ABOUT -->
+  <section class="sec" id="about">
+    <div class="sec-inner">
+
+      <header class="sec-head" data-reveal>
+        <span class="sec-idx">03</span>
+        <div class="sec-title-wrap">
+          <h2 class="sec-title" data-draw>About</h2>
+          <span class="sec-note" aria-hidden="true">Jaipur, India</span>
+        </div>
+        <span class="sec-line" data-rule aria-hidden="true"></span>
+      </header>
+
+      <p class="about-lead" data-reveal>
+        Final-year CS at JECRC. DSA by habit, web by choice, real-time systems by curiosity.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-body" data-reveal>
+          <p>I'm a final-year Computer Science student at JECRC University. I care about writing code that real people can use — not just code that compiles.</p>
+          <p>My foundation is in Data Structures &amp; Algorithms, Object-Oriented Programming and web development. So far: a resume analyser in Python and a synced listening room on Socket.IO.</p>
+          <p>Right now I'm looking for a software development internship where I can learn from experienced engineers, contribute to meaningful products, and grow into a dependable developer.</p>
+        </div>
+
+        <dl class="facts" data-reveal>
+          <div class="fact"><dt>Based</dt><dd>Jaipur, Rajasthan, India</dd></div>
+          <div class="fact"><dt>Studying</dt><dd>B.Tech CSE, JECRC University</dd></div>
+          <div class="fact"><dt>Years</dt><dd>2023 — 2027</dd></div>
+          <div class="fact"><dt>Focus</dt><dd>DSA · Web · AI</dd></div>
+          <div class="fact"><dt>Languages</dt><dd>English, Hindi</dd></div>
+          <div class="fact"><dt>Status</dt><dd class="fact-live">Open to internships</dd></div>
+        </dl>
+      </div>
+
+      <div class="interests" data-reveal>
+        <h3 class="mini-head">Beyond code</h3>
+        <ul>
+          <li>Regular DSA practice on LeetCode &amp; CodeChef</li>
+          <li>Valorant and tactical FPS — team strategy, fast decisions</li>
+          <li>Building playlists and helping friends with their code</li>
+        </ul>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 04 · SKILLS -->
+  <section class="sec" id="skills">
+    <div class="sec-inner">
+
+      <header class="sec-head" data-reveal>
+        <span class="sec-idx">04</span>
+        <div class="sec-title-wrap">
+          <h2 class="sec-title" data-draw>Skills</h2>
+          <span class="sec-note" aria-hidden="true">In practice &amp; production</span>
+        </div>
+        <span class="sec-line" data-rule aria-hidden="true"></span>
+      </header>
+
+      <div class="skills">
+
+        <div class="skill-row" data-reveal>
+          <h3 class="skill-cat">Languages</h3>
+          <p class="skill-list">
+            <span class="tech" data-tech="c">C</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="cpp">C++</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="python" data-used="rankraft" data-role="NLP analysis, scoring" data-related="streamlit">Python</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="java">Java</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="javascript" data-used="samewave" data-role="Room UI, playback controls" data-related="node,express,socketio">JavaScript</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="sql">SQL</span>
+          </p>
+        </div>
+
+        <div class="skill-row" data-reveal>
+          <h3 class="skill-cat">Fundamentals</h3>
+          <p class="skill-list">
+            <span class="tech" data-tech="dsa">Data Structures</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="algorithms">Algorithms</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="oop">OOP</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="os">Operating Systems</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="dbms">DBMS</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="rest">REST APIs</span>
+          </p>
+        </div>
+
+        <div class="skill-row" data-reveal>
+          <h3 class="skill-cat">Web &amp; Databases</h3>
+          <p class="skill-list">
+            <span class="tech" data-tech="html5">HTML5</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="css3">CSS3</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="node" data-used="samewave" data-role="Server, room state" data-related="express,socketio">Node.js</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="express" data-used="samewave" data-role="HTTP layer, REST routes" data-related="node,socketio">Express.js</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="mongodb">MongoDB</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="socketio" data-used="samewave" data-role="Real-time playback sync" data-related="node,express,javascript">Socket.IO</span>
+          </p>
+        </div>
+
+        <div class="skill-row" data-reveal>
+          <h3 class="skill-cat">Tools</h3>
+          <p class="skill-list">
+            <span class="tech" data-tech="git">Git</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="github">GitHub</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="vscode">VS Code</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="vercel">Vercel</span><span class="sep" aria-hidden="true">/</span>
+            <span class="tech" data-tech="streamlit" data-used="rankraft" data-role="UI flow, visual insight" data-related="python">Streamlit</span>
+          </p>
+        </div>
+
+      </div>
+
+      <p class="skills-note" id="skillsNote" role="status" aria-live="polite">
+        <span class="skills-note-label">Hover a technology</span>
+        <span class="skills-note-body">to see where it's used.</span>
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- 05 · EXPERIENCE -->
+  <section class="sec" id="experience">
+    <div class="sec-inner">
+
+      <header class="sec-head" data-reveal>
+        <span class="sec-idx">05</span>
+        <div class="sec-title-wrap">
+          <h2 class="sec-title" data-draw>Experience</h2>
+          <span class="sec-note" aria-hidden="true">Study &amp; community</span>
+        </div>
+        <span class="sec-line" data-rule aria-hidden="true"></span>
+      </header>
+
+      <ol class="timeline" id="timeline">
+        <span class="timeline-marker" id="timelineMarker" aria-hidden="true"></span>
+
+        <li class="tl-item" data-reveal tabindex="0">
+          <span class="tl-year">2023 — 2024</span>
+          <div class="tl-body">
+            <h3 class="tl-role">GDSC Member</h3>
+            <p class="tl-org">Google Developer Student Clubs · JECRC University</p>
+            <ul class="tl-points">
+              <li>Helped plan and promote developer workshops, coding sessions and peer-learning activities.</li>
+              <li>Coordinated event logistics, outreach and participant support with cross-branch student teams.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="tl-item" data-reveal tabindex="0">
+          <span class="tl-year">2023 — 2027</span>
+          <div class="tl-body">
+            <h3 class="tl-role">B.Tech, Computer Science &amp; Engineering</h3>
+            <p class="tl-org">JECRC University · Jaipur</p>
+            <ul class="tl-points">
+              <li>Coursework: Data Structures, Algorithms, OOP, DBMS, Operating Systems, Computer Networks.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="tl-item" data-reveal tabindex="0">
+          <span class="tl-year">2022</span>
+          <div class="tl-body">
+            <h3 class="tl-role">Senior Secondary — Class XII</h3>
+            <p class="tl-org">Shanti Dham Senior Secondary School · Atarra, Uttar Pradesh</p>
+          </div>
+        </li>
+
+        <li class="tl-item" data-reveal tabindex="0">
+          <span class="tl-year">2020</span>
+          <div class="tl-body">
+            <h3 class="tl-role">Secondary — Class X</h3>
+            <p class="tl-org">Shanti Dham Senior Secondary School · Atarra, Uttar Pradesh</p>
+          </div>
+        </li>
+      </ol>
+
+      <div class="timeline-progress" aria-hidden="true">
+        <span class="timeline-progress-label">Timeline</span>
+        <span class="timeline-progress-bar"><i id="timelineProgress"></i></span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 06 · EXPERIMENTS -->
+  <section class="sec" id="experiments">
+    <div class="sec-inner">
+
+      <header class="sec-head" data-reveal>
+        <span class="sec-idx">06</span>
+        <div class="sec-title-wrap">
+          <h2 class="sec-title" data-draw>Experiments</h2>
+          <span class="sec-note" aria-hidden="true">No purpose, just shape</span>
+        </div>
+        <span class="sec-line" data-rule aria-hidden="true"></span>
+      </header>
+
+      <p class="exp-note" data-reveal>
+        Small visual studies — things I built to understand motion, structure and space.
+        Not products. Just curiosity.
+      </p>
+
+      <div class="exp-grid">
+
+        <figure class="exp" data-reveal data-exp-figure="field">
+          <span class="exp-idx" aria-hidden="true">06.1</span>
+          <div class="exp-visual">
+            <canvas class="exp-canvas" data-exp="field" role="img" aria-label="Interactive grid of points displaced by the pointer"></canvas>
+          </div>
+          <div class="exp-controls">
+            <button type="button" class="exp-mode is-active" data-exp-mode="repel" aria-pressed="true">Repel</button>
+            <button type="button" class="exp-mode" data-exp-mode="attract" aria-pressed="false">Attract</button>
+          </div>
+          <figcaption class="exp-meta">
+            <b>Field</b>
+            <span>Pointer displacement</span>
+          </figcaption>
+        </figure>
+
+        <figure class="exp" data-reveal data-exp-figure="sync">
+          <span class="exp-idx" aria-hidden="true">06.2</span>
+          <div class="exp-visual">
+            <canvas class="exp-canvas" data-exp="sync" role="img" aria-label="Two waveforms converging into phase"></canvas>
+          </div>
+          <div class="exp-controls exp-controls-readout">
+            <span class="exp-readout-label" aria-hidden="true">Sync</span>
+            <span class="exp-readout-value" data-exp-val="sync" role="status" aria-live="polite">0%</span>
+          </div>
+          <figcaption class="exp-meta">
+            <b>Sync</b>
+            <span>Two oscillators</span>
+          </figcaption>
+        </figure>
+
+        <figure class="exp" data-reveal data-exp-figure="life">
+          <span class="exp-idx" aria-hidden="true">06.3</span>
+          <div class="exp-visual">
+            <canvas class="exp-canvas" data-exp="life" role="img" aria-label="Conway's Game of Life — move the pointer to paint cells"></canvas>
+          </div>
+          <div class="exp-controls">
+            <button type="button" class="exp-mode" data-life="seed">Seed</button>
+            <button type="button" class="exp-mode is-active" data-life="run" aria-pressed="true">Pause</button>
+          </div>
+          <figcaption class="exp-meta">
+            <b>Life</b>
+            <span>B3/S23 automaton</span>
+          </figcaption>
+        </figure>
+
+        <figure class="exp" data-reveal data-exp-figure="hash">
+          <span class="exp-idx" aria-hidden="true">06.4</span>
+          <div class="exp-visual">
+            <canvas class="exp-canvas exp-canvas-sq" data-exp="hash" role="img" aria-label="A mirrored 8×8 glyph generated from the SHA-256 hash of the text you type"></canvas>
+          </div>
+          <div class="exp-controls">
+            <input type="text" class="exp-input" value="Utkarsh" maxlength="40" aria-label="Text to hash" spellcheck="false" autocomplete="off">
+          </div>
+          <figcaption class="exp-meta">
+            <b>Hash</b>
+            <span>SHA-256 → glyph</span>
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- 07 · CONTACT -->
+  <section class="sec contact" id="contact">
+    <div class="sec-inner">
+
+      <header class="sec-head" data-reveal>
+        <span class="sec-idx">07</span>
+        <div class="sec-title-wrap">
+          <h2 class="sec-title" data-draw>Contact</h2>
+          <span class="sec-note" aria-hidden="true">Open to internships</span>
+        </div>
+        <span class="sec-line" data-rule aria-hidden="true"></span>
+      </header>
+
+      <p class="contact-huge" data-reveal id="contactHuge" aria-label="Let's talk">
+        <span class="contact-letter" aria-hidden="true">L</span><span class="contact-letter" aria-hidden="true">e</span><span class="contact-letter" aria-hidden="true">t</span><span class="contact-letter" aria-hidden="true">'</span><span class="contact-letter" aria-hidden="true">s</span>
+        <br aria-hidden="true">
+        <span class="contact-letter" aria-hidden="true">t</span><span class="contact-letter" aria-hidden="true">a</span><span class="contact-letter" aria-hidden="true">l</span><span class="contact-letter" aria-hidden="true">k</span><span class="contact-letter" aria-hidden="true">.</span>
+        <span class="contact-rule" aria-hidden="true"></span>
+      </p>
+
+      <ul class="contact-links" data-reveal>
+        <li>
+          <button class="contact-link contact-link-copy" type="button" data-copy="sanjayutk1972@gmail.com" data-magnetic data-cursor="COPY">
+            <span class="contact-link-label" id="emailLabel">Email</span>
+            <span class="contact-link-hint" id="emailHint" aria-hidden="true">Click to copy</span>
+            <span class="arw" aria-hidden="true">↗</span>
+          </button>
+        </li>
+        <li>
+          <a class="contact-link" href="https://github.com/Utkasrhr3127" target="_blank" rel="noopener noreferrer" data-magnetic data-cursor="↗">
+            <span>GitHub</span><span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a class="contact-link" href="https://www.linkedin.com/in/utkarshshrivastava01/" target="_blank" rel="noopener noreferrer" data-magnetic data-cursor="↗">
+            <span>LinkedIn</span><span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a class="contact-link" href="tel:+917007640499" data-magnetic>
+            <span>Phone</span><span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a class="contact-link" href="resume.pdf" download data-magnetic data-cursor="↗">
+            <span>Résumé</span><span class="arw" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      </ul>
+
+    </div>
+  </section>
+
+</main>
+
+
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© <span id="year">2026</span> Utkarsh Shrivastava</span>
+
+    <span class="footer-live">
+      <span class="footer-key">Local</span>
+      <span id="footTime">—:—</span>
+    </span>
+
+    <span class="footer-live">
+      <span class="footer-key">Scroll</span>
+      <span id="footScroll">0%</span>
+    </span>
+
+    <span class="footer-live">
+      <span class="footer-key">Status</span>
+      <span>Open to work</span>
+    </span>
+  </div>
+</footer>
+
+
+<div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Navigation menu" hidden>
+  <div class="palette-backdrop" data-palette-close></div>
+
+  <div class="palette-panel">
+    <div class="palette-head">
+      <span class="palette-prompt" aria-hidden="true">:</span>
+      <input class="palette-input" id="paletteInput" type="text" placeholder="Type a command…" autocomplete="off" spellcheck="false" aria-label="Command input">
+      <span class="palette-esc" aria-hidden="true">ESC</span>
+    </div>
+
+    <ul class="palette-list" id="paletteList" role="listbox" aria-label="Commands"></ul>
+
+    <div class="palette-foot">
+      <span><b>↑↓</b> Navigate</span>
+      <span><b>↵</b> Open</span>
+      <span><b>/</b> or <b>⌘K</b></span>
     </div>
   </div>
+</div>
 
-  <nav id="navbar">
-    <div class="nav-brand">
-      <span class="nav-bracket">&lt;</span>US<span class="nav-bracket">/&gt;</span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#hero" class="nav-link active" data-section="hero">home</a></li>
-      <li><a href="#about" class="nav-link" data-section="about">about</a></li>
-      <li><a href="#focus" class="nav-link" data-section="focus">focus</a></li>
-      <li><a href="#skills" class="nav-link" data-section="skills">skills</a></li>
-      <li><a href="#projects" class="nav-link" data-section="projects">projects</a></li>
-      <li><a href="#experience" class="nav-link" data-section="experience">experience</a></li>
-      <li><a href="#contact" class="nav-link" data-section="contact">contact</a></li>
-    </ul>
-    <div class="nav-toggle" id="navToggle">
-      <span></span><span></span><span></span>
-    </div>
-  </nav>
 
-  <section id="hero" class="section hero">
-    <div class="hero-grid-overlay"></div>
+<div class="inspector" id="inspector" role="dialog" aria-modal="true" aria-labelledby="inspectTitle" hidden>
+  <div class="inspector-backdrop" data-inspect-close></div>
 
-    <div class="hud-layer" aria-hidden="true">
-      <div class="hud-corner tl"><span class="hud-label">SYS.ONLINE</span></div>
-      <div class="hud-corner tr"><span class="hud-label">PING: 12ms</span></div>
-      <div class="hud-corner bl"><span class="hud-label">v3.0.26</span></div>
-      <div class="hud-corner br"><span class="hud-label">JPR / IN</span></div>
+  <article class="inspector-panel">
 
-      <div class="hud-scanline"></div>
+    <button class="inspector-close" id="inspectClose" type="button" aria-label="Close case study" data-inspect-close data-magnetic>×</button>
 
-      <div class="hud-orbit">
-        <div class="orbit-dot d1"></div>
-        <div class="orbit-dot d2"></div>
-        <div class="orbit-dot d3"></div>
-      </div>
+    <header class="inspector-head">
+      <span class="inspector-num" id="inspectNum">01</span>
+      <span class="inspector-year" id="inspectYear">2025</span>
+    </header>
+
+    <h2 class="inspector-title" id="inspectTitle">Project</h2>
+    <p class="inspector-sub" id="inspectSub">—</p>
+
+    <div class="inspector-visual" id="inspectVisual" aria-hidden="true">
+      <img id="inspectImage" src="" alt="" decoding="async">
+      <span class="inspector-visual-fallback" id="inspectVisualFallback"></span>
     </div>
 
-    <div class="code-rain" aria-hidden="true">
-      <span class="frag f1">0x1F4A</span>
-      <span class="frag f2">const x = 42;</span>
-      <span class="frag f3">while(true)</span>
-      <span class="frag f4">01001010</span>
-      <span class="frag f5">return 0;</span>
-      <span class="frag f6">nullptr</span>
-      <span class="frag f7">import sys</span>
-      <span class="frag f8">fn main()</span>
-      <span class="frag f9">&lt;/&gt;</span>
-      <span class="frag f10">O(log n)</span>
-      <span class="frag f11">async await</span>
-      <span class="frag f12">0xDEADBEEF</span>
+    <dl class="inspector-body" id="inspectBody"></dl>
+
+    <div class="inspector-actions" id="inspectActions">
+      <a class="arrow-link" id="inspectSource" href="#" target="_blank" rel="noopener noreferrer" data-magnetic>
+        <span>Source</span><span class="arw" aria-hidden="true">↗</span>
+      </a>
+      <a class="arrow-link" id="inspectLive" href="#" target="_blank" rel="noopener noreferrer" data-magnetic hidden>
+        <span>Live</span><span class="arw" aria-hidden="true">↗</span>
+      </a>
+      <button class="arrow-link inspector-close-link" type="button" data-inspect-close data-magnetic>
+        <span>Close</span><span class="arw" aria-hidden="true">×</span>
+      </button>
     </div>
 
-    <div class="hero-content">
+  </article>
+</div>
 
-      <h1 class="mega-name" id="megaName" data-text="Utkarsh Shrivastava" aria-label="Utkarsh Shrivastava"></h1>
 
-      <div class="hero-terminal-wrap">
-        <div class="hero-terminal-window">
-          <div class="terminal-header">
-            <span class="terminal-dot red"></span>
-            <span class="terminal-dot yellow"></span>
-            <span class="terminal-dot green"></span>
-            <span class="terminal-title">utkarsh@portfolio:~</span>
-          </div>
-          <div class="terminal-body">
-            <p class="terminal-line"><span class="prompt">$</span> whoami</p>
-            <p class="terminal-output">Utkarsh Shrivastava</p>
-            <p class="terminal-line"><span class="prompt">$</span> cat role.txt</p>
-            <p class="terminal-output" id="typewriter"></p>
-            <p class="terminal-line"><span class="prompt">$</span> location</p>
-            <p class="terminal-output">Jaipur, Rajasthan, India</p>
-            <p class="terminal-line blink-line"><span class="prompt">$</span> <span class="terminal-cursor">█</span></p>
-          </div>
-        </div>
-      </div>
+<div class="sr-only" id="a11yLive" aria-live="polite" aria-atomic="true"></div>
 
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">view projects</a>
-        <a href="#contact" class="btn btn-outline">get in touch</a>
-      </div>
-
-      <div class="hero-status">
-        <span class="status-dot"></span>
-        <span class="status-label">utkarsh@portfolio</span>
-        <span class="status-sep">·</span>
-        <span class="status-value">Jaipur, IN</span>
-        <span class="status-sep">·</span>
-        <span class="status-value">open to internships</span>
-      </div>
-
-      <div class="hero-scroll-indicator">
-        <span>scroll</span>
-        <div class="scroll-line"></div>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="about" class="section">
-    <div class="section-header">
-      <span class="section-number">01</span>
-      <h2 class="section-title">about_me</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="about-grid">
-      <div class="about-terminal-card reveal">
-        <div class="card-corner top-left"></div>
-        <div class="card-corner bottom-right"></div>
-        <p class="about-text">
-          I'm a final-year <span class="highlight">Computer Science</span> student at
-          JECRC University who genuinely enjoys turning messy ideas into clean,
-          working software. I care about writing code that real people can use —
-          not just code that compiles.
-        </p>
-        <p class="about-text">
-          My foundation is in <span class="highlight">Data Structures &amp; Algorithms</span>,
-          <span class="highlight">Object-Oriented Programming</span>, and web development.
-          I've built projects across AI, real-time systems, and full-stack web —
-          each one teaching me something new about building things that actually work.
-        </p>
-        <p class="about-text">
-          Right now I'm looking for a software development internship where I can
-          learn from experienced engineers, contribute to meaningful products, and
-          grow into a dependable developer.
-        </p>
-        <div class="about-stats">
-          <div class="stat">
-            <span class="stat-number" data-target="2027">0</span>
-            <span class="stat-label">graduating</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number" data-target="2">0</span>
-            <span class="stat-label">projects</span>
-          </div>
-          <div class="stat">
-            <span class="stat-number" data-target="6">0</span>
-            <span class="stat-label">languages</span>
-          </div>
-        </div>
-      </div>
-      <div class="about-visual reveal">
-        <div class="code-block">
-          <pre><code><span class="code-keyword">const</span> <span class="code-var">utkarsh</span> = {
-  <span class="code-prop">role</span>: <span class="code-string">"CSE Student"</span>,
-  <span class="code-prop">focus</span>: [<span class="code-string">"DSA"</span>, <span class="code-string">"Web"</span>, <span class="code-string">"AI"</span>],
-  <span class="code-prop">stack</span>: <span class="code-string">"Node + Python"</span>,
-  <span class="code-prop">currentGoal</span>: <span class="code-string">"SDE Internship"</span>,
-  <span class="code-prop">coffee</span>: <span class="code-keyword">true</span>
-};</code></pre>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="focus" class="section">
-    <div class="section-header">
-      <span class="section-number">02</span>
-      <h2 class="section-title">focus_areas</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="focus-grid">
-      <div class="focus-card focus-large reveal">
-        <div class="focus-icon">⌬</div>
-        <h3>Full-Stack Development</h3>
-        <p>Building end-to-end web applications with clean architecture — from REST APIs and auth flows to responsive, production-deployed UIs.</p>
-        <div class="focus-tags">
-          <span>Node.js</span><span>Express</span><span>MongoDB</span><span>REST</span>
-        </div>
-      </div>
-      <div class="focus-card reveal">
-        <div class="focus-icon">◈</div>
-        <h3>AI &amp; NLP</h3>
-        <p>Using Python and NLP to turn unstructured text into clear, actionable insight.</p>
-        <div class="focus-tags">
-          <span>Python</span><span>NLP</span><span>Streamlit</span>
-        </div>
-      </div>
-      <div class="focus-card reveal">
-        <div class="focus-icon">◇</div>
-        <h3>Real-Time Systems</h3>
-        <p>Designing low-latency, multi-user experiences with WebSockets and Socket.IO.</p>
-        <div class="focus-tags">
-          <span>Socket.IO</span><span>WebSockets</span>
-        </div>
-      </div>
-      <div class="focus-card focus-wide reveal">
-        <div class="focus-icon">◆</div>
-        <h3>Problem Solving</h3>
-        <p>Strong foundation in DSA, OOP, OS, and DBMS — the base everything else is built on.</p>
-        <div class="focus-tags">
-          <span>DSA</span><span>OOP</span><span>OS</span><span>DBMS</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills" class="section">
-    <div class="section-header">
-      <span class="section-number">03</span>
-      <h2 class="section-title">tech_stack</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="skills-grid">
-      <div class="skill-category reveal">
-        <h3 class="skill-category-title"><span class="skill-icon">{" "}</span> languages</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">C</span>
-          <span class="skill-tag">C++</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Java</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">SQL</span>
-        </div>
-      </div>
-      <div class="skill-category reveal">
-        <h3 class="skill-category-title"><span class="skill-icon">{" "}</span> cs_fundamentals</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Data Structures</span>
-          <span class="skill-tag">Algorithms</span>
-          <span class="skill-tag">OOP</span>
-          <span class="skill-tag">Operating Systems</span>
-          <span class="skill-tag">DBMS</span>
-          <span class="skill-tag">REST APIs</span>
-        </div>
-      </div>
-      <div class="skill-category reveal">
-        <h3 class="skill-category-title"><span class="skill-icon">{" "}</span> web_and_db</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">HTML5</span>
-          <span class="skill-tag">CSS3</span>
-          <span class="skill-tag">Node.js</span>
-          <span class="skill-tag">Express.js</span>
-          <span class="skill-tag">MongoDB</span>
-          <span class="skill-tag">Socket.IO</span>
-        </div>
-      </div>
-      <div class="skill-category reveal">
-        <h3 class="skill-category-title"><span class="skill-icon">{" "}</span> tools</h3>
-        <div class="skill-tags">
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">GitHub</span>
-          <span class="skill-tag">VS Code</span>
-          <span class="skill-tag">Vercel</span>
-          <span class="skill-tag">Streamlit</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="projects" class="section">
-    <div class="section-header">
-      <span class="section-number">04</span>
-      <h2 class="section-title">projects</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="projects-grid">
-
-      <article class="project-card reveal tilt-card">
-        <div class="project-glow"></div>
-        <div class="project-header">
-          <span class="project-index">01</span>
-          <span class="project-year">2025</span>
-        </div>
-        <h3 class="project-title">Rankraft</h3>
-        <p class="project-subtitle">AI Resume Analyser — College Minor Project</p>
-
-        <div class="project-case">
-          <div class="case-row">
-            <span class="case-label">problem</span>
-            <p class="case-text">Job seekers can't tell if their resume actually matches a role.</p>
-          </div>
-          <div class="case-row">
-            <span class="case-label">solution</span>
-            <p class="case-text">An NLP analyser that scores resumes against a job description and highlights missing keywords.</p>
-          </div>
-          <div class="case-row">
-            <span class="case-label">result</span>
-            <p class="case-text">Clear, actionable feedback for individuals through a simple guided flow.</p>
-          </div>
-        </div>
-
-        <div class="project-tech">
-          <span>Python</span><span>NLP</span><span>Streamlit</span><span>Flask</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/Utkasrhr3127/Rankraft" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source">
-            <span class="link-icon">[ ]</span> source
-          </a>
-          <a href="https://github.com/Utkasrhr3127/Rankraft" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Live demo">
-            <span class="link-icon">▸</span> demo
-          </a>
-        </div>
-      </article>
-
-      <article class="project-card reveal tilt-card">
-        <div class="project-glow"></div>
-        <div class="project-header">
-          <span class="project-index">02</span>
-          <span class="project-year">2025</span>
-        </div>
-        <h3 class="project-title">SameWave</h3>
-        <p class="project-subtitle">Synced Listening Room</p>
-
-        <div class="project-case">
-          <div class="case-row">
-            <span class="case-label">problem</span>
-            <p class="case-text">Long-distance friends can't listen to music together in real time.</p>
-          </div>
-          <div class="case-row">
-            <span class="case-label">solution</span>
-            <p class="case-text">A private-room web app with real-time playback sync using Socket.IO.</p>
-          </div>
-          <div class="case-row">
-            <span class="case-label">result</span>
-            <p class="case-text">Low-latency, shared listening experience wrapped in a warm, minimal UI.</p>
-          </div>
-        </div>
-
-        <div class="project-tech">
-          <span>Node.js</span><span>Express.js</span><span>Socket.IO</span><span>HTML/CSS/JS</span>
-        </div>
-        <div class="project-links">
-          <a href="https://github.com/Utkasrhr3127" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="View source">
-            <span class="link-icon">[ ]</span> source
-          </a>
-          <a href="https://dainty-frangipane-302644.netlify.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Live demo">
-            <span class="link-icon">▸</span> demo
-          </a>
-        </div>
-      </article>
-
-    </div>
-  </section>
-
-  <section id="experience" class="section">
-    <div class="section-header">
-      <span class="section-number">05</span>
-      <h2 class="section-title">experience</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="timeline">
-      <div class="timeline-item reveal">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <div class="timeline-header">
-            <h3>GDSC Member</h3>
-            <span class="timeline-date">2023 — 2024</span>
-          </div>
-          <p class="timeline-org">Google Developer Student Clubs, JECRC University</p>
-          <ul class="timeline-bullets">
-            <li>Helped plan and promote developer workshops, coding sessions, and peer-learning activities.</li>
-            <li>Coordinated event logistics, outreach, and participant support with cross-branch student teams.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section id="achievements" class="section">
-    <div class="section-header">
-      <span class="section-number">06</span>
-      <h2 class="section-title">achievements_&amp;_interests</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="achievements-grid">
-      <div class="achievement-card reveal">
-        <span class="achievement-icon">◆</span>
-        <h4>GDSC Member (2023–2024)</h4>
-        <p>Supported tech community events and beginner-friendly coding activities.</p>
-      </div>
-      <div class="achievement-card reveal">
-        <span class="achievement-icon">◆</span>
-        <h4>Coding Practice</h4>
-        <p>Regularly solve DSA problems on LeetCode and CodeChef.</p>
-      </div>
-      <div class="achievement-card reveal">
-        <span class="achievement-icon">◆</span>
-        <h4>E-Sports</h4>
-        <p>Valorant, competitive FPS, and team-based strategy games.</p>
-      </div>
-      <div class="achievement-card reveal">
-        <span class="achievement-icon">◆</span>
-        <h4>Music &amp; Community</h4>
-        <p>Enjoy building playlists, helping friends with coding, and exploring scalable app ideas.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="contact" class="section">
-    <div class="section-header">
-      <span class="section-number">07</span>
-      <h2 class="section-title">contact</h2>
-      <div class="section-line"></div>
-    </div>
-    <div class="contact-grid">
-      <div class="contact-terminal reveal">
-        <div class="terminal-header">
-          <span class="terminal-dot red"></span>
-          <span class="terminal-dot yellow"></span>
-          <span class="terminal-dot green"></span>
-          <span class="terminal-title">contact.sh</span>
-        </div>
-        <div class="terminal-body">
-          <p class="terminal-line"><span class="prompt">$</span> cat contact.json</p>
-          <div class="contact-json">
-            <p>{</p>
-            <p>&nbsp;&nbsp;<span class="json-key">"email"</span>: <a href="mailto:sanjayutk1972@gmail.com" class="json-value">"sanjayutk1972@gmail.com"</a>,</p>
-            <p>&nbsp;&nbsp;<span class="json-key">"phone"</span>: <a href="tel:+917007640499" class="json-value">"+91 7007640499"</a>,</p>
-            <p>&nbsp;&nbsp;<span class="json-key">"linkedin"</span>: <a href="https://www.linkedin.com/in/utkarshshrivastava01/" target="_blank" rel="noopener noreferrer" class="json-value">"linkedin.com/in/utkarshshrivastava01"</a>,</p>
-            <p>&nbsp;&nbsp;<span class="json-key">"location"</span>: <span class="json-value">"Jaipur, Rajasthan"</span></p>
-            <p>}</p>
-          </div>
-          <p class="terminal-line blink-line"><span class="prompt">$</span> <span class="terminal-cursor">█</span></p>
-        </div>
-      </div>
-      <div class="contact-cta reveal">
-        <h3>Let's build something.</h3>
-        <p>
-          I'm open to internship opportunities, freelance projects, and
-          conversations about code, design, or whatever you're building.
-        </p>
-        <a href="mailto:sanjayutk1972@gmail.com" class="btn btn-primary btn-large">
-          send an email
-        </a>
-        <div class="social-links">
-          <a href="https://www.linkedin.com/in/utkarshshrivastava01/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          <span class="social-sep">/</span>
-          <a href="https://github.com/Utkasrhr3127" target="_blank" rel="noopener noreferrer">GitHub</a>
-          <span class="social-sep">/</span>
-          <a href="https://leetcode.com/" target="_blank" rel="noopener noreferrer">LeetCode</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <p class="footer-text">
-        <span class="footer-bracket">&lt;/&gt;</span>
-        built with vanilla HTML, CSS, JS &amp; Three.js
-      </p>
-      <p class="footer-copy">
-        © <span id="year"></span> Utkarsh Shrivastava. All rights reserved.
-      </p>
-    </div>
-  </footer>
-
-  <script src="script.js" defer></script>
+<script src="script.js" defer></script>
 </body>
 </html>
